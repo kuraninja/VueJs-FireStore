@@ -8,10 +8,10 @@ WORKDIR /usr/src
 
 ADD package.json package-lock.json  /usr/src/
 
-RUN npm install
-
 WORKDIR ${WORKING_DIR}
 COPY . ${WORKING_DIR}/
+
+RUN npm install
 
 RUN npm run build
 
