@@ -135,7 +135,7 @@
       </div>
         <input @keyup.enter="onSearch" v-model='query'>
         <br>
-        <div style="font-weight:bold">You search for this {{query}} car model </div>
+        <div style="font-weight:bold">You search for this car model: {{query}} </div>
         </br>
         </input>
       <table class="table">
@@ -161,15 +161,14 @@
       </table>
   </div>
   <div class="card mt-8">
-<label for="id_select">This selection has this IDs: </label>
-    <select id="id_select" v-model="carID" @change="getRentalsID" >
-
-      <option v-for="result in results" :key='result.id' >  {{result.id}}
-        </option>
-
+  <br>
+  <br>
+  <label style="font-weight:bold"for="id_select">Your selection has this specification: </label>
+    <select id="id_select" v-model="carID"  @change="getRentalsID" >
+      <option style="font-weight:normal"v-for="result in results" :key='result.id' :value="result.id">  Your Car Model: {{result.car_model}} | Your Car Brand: {{result.car_brand}} | Your Car Color: {{result.car_color}}
+      </option>
       </select>
       <table class="table">
-
       <thead>
               <tr>
                 <th scope="col">
@@ -276,6 +275,7 @@ export default {
       query:'',
       carID:'',
       editId: '',
+      carModel:'',
       editRentalId: '',
       carData: {
         'id' : '',
